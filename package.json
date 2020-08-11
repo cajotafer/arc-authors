@@ -1,5 +1,5 @@
 {
-  "name": "author-service",
+  "name": "arc-authors",
   "version": "0.1",
   "description": "Tool to manage Authors in ARC from the Author Service, since some things can't be done via UI.",
   "main": "index.js",
@@ -7,7 +7,10 @@
     "slugs": "node index.js"
   },
   "keywords": ["ARC", "author-service", "author API", "ARCpublishing"],
-  "author": "https://github.com/cajotafer",
+  "author": { "name" : "Carlos Fernandez"
+    , "email" : "hello@cajotafer.com"
+    , "url" : "https://cajotafer.com"
+    },
   "license": "MIT",
   "dependencies": {
     "chalk": "^4.1.0",
