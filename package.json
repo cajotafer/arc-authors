@@ -1,0 +1,17 @@
+{
+  "name": "author-service",
+  "version": "0.1",
+  "description": "Tool to manage Authors in ARC from the Author Service, since some things can't be done via UI.",
+  "main": "index.js",
+  "scripts": {
+    "slugs": "node index.js"
+  },
+  "keywords": ["ARC", "author-service", "author API", "ARCpublishing"],
+  "author": "https://github.com/cajotafer",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "dotenv": "^8.2.0",
+    "node-fetch": "^2.6.0"
+  }
+}
