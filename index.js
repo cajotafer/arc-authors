@@ -4,10 +4,10 @@ const chalk = require('chalk');
 const { slugify } = require('./slugify')
 
 const TOKEN = process.env.ACCESS_TOKEN
-const arcSite = process.env.ARCSITE
+const site = process.env.SITE
 
-const BASE_PROD = `https://api.${arcSite}.arcpublishing.com`
-const BASE_SANDBOX = `https://api.sandbox.${arcSite}.arcpublishing.com`
+const BASE_PROD = `https://api.${site}.arcpublishing.com`
+const BASE_SANDBOX = `https://api.sandbox.${site}.arcpublishing.com`
 const GET_V1 = '/author/v1/author-service'
 const UPDATE_V2 = '/author/v2/author-service/'
 const headers =  {
@@ -18,7 +18,7 @@ const headers =  {
 
 const getSlugFromUrl = url => url && url.split('/autor/')[1]
 
-fetch(`${BASE_SANDBOX}${GET_V1}`, {
+fetch(`${BASE_PROD}${GET_V1}`, {
   method: 'GET',
   headers
 })
@@ -40,7 +40,7 @@ fetch(`${BASE_SANDBOX}${GET_V1}`, {
 
       const slug = getSlugFromUrl(bio_page) || slugify(_id)
 
-      fetch(`${BASE_SANDBOX}${UPDATE_V2}${encodeURIComponent(_id)}`, {
+      fetch(`${BASE_PROD}${UPDATE_V2}${encodeURIComponent(_id)}`, {
         method: 'POST',
         headers,
         body: JSON.stringify({
