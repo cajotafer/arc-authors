@@ -36,7 +36,23 @@ fetch(`${BASE_PROD}${GET_V1}`, {
       const {
         _id,
         bio_page,
+        books = []
       } = author
+
+      const filteredBooks = books.map(({ title, url, publisher}) => {
+        let filteredBook = {
+          title,
+          publisher
+        }
+        // Solo agrega la url si no es vacia
+        if(url){
+          filteredBook = {
+            ...filteredBook,
+            url
+          }
+        }
+        return filteredBook
+      })
 
       const slug = getSlugFromUrl(bio_page) || slugify(_id)
 
@@ -45,6 +61,7 @@ fetch(`${BASE_PROD}${GET_V1}`, {
         headers,
         body: JSON.stringify({
           ...author,
+          books: filteredBooks,
           slug
         })
       })
